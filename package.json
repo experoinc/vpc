@@ -16,7 +16,7 @@
   "peerDependencies": {
     "@cfn-modules/vpc-flow-log": "^1.1.0",
     "@cfn-modules/vpc-nat-gateway": "^1.1.0",
-    "@cfn-modules/vpc-plain": "^1.0.0",
-    "@cfn-modules/vpc-subnet": "^1.0.0"
+    "@cfn-modules/vpc-plain": "github:experoinc/vpc-plain#d069cd021cf0b7791cb2b7751928f4a3b8acc078",
+    "@cfn-modules/vpc-subnet": "github:experoinc/vpc-subnet#2729ce3b9e1a33b38c9f87e1dd76cdfda9d94607"
   }
 }
