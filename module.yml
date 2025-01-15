@@ -20,13 +20,6 @@ Parameters:
     Description: 'Optional but recommended stack name of alerting module.'
     Type: String
     Default: ''
-  ClassB:
-    Description: 'Class B of VPC (10.XXX.0.0/16)'
-    Type: Number
-    Default: 0
-    ConstraintDescription: 'Must be in the range [0-255]'
-    MinValue: 0
-    MaxValue: 255
   NumberOfAvailabilityZones:
     Description: 'How many availability zones should be used?'
     Type: Number
@@ -285,7 +278,7 @@ Resources:
         - IpProtocol: tcp
           FromPort: 587
           ToPort: 587
-          CidrIp: !Sub '10.${ClassB}.0.0/16'
+          CidrIp: !Ref CIDR
           Description: 'Allow everything in VPC to access SES'
   VPCEndpointSES:
     Condition: HasSesEndpoint
@@ -314,7 +307,7 @@ Resources:
         - IpProtocol: tcp
           FromPort: 443
           ToPort: 443
-          CidrIp: !Sub '10.${ClassB}.0.0/16'
+          CidrIp: !Ref CIDR
           Description: 'Allow everything in VPC to access SecretsManager'
   VPCEndpointSecretsManager:
     Condition: HasSecretsManagerEndpoint
